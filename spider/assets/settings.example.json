@@ -1,0 +1,39 @@
+{
+  "_comment": "Spider config template. Copy this file as settings.json and fill in actual values. settings.json should NOT be committed to version control.",
+  "browser": "chrome",
+  "_browser_comment": "Browser type: chrome | chromium | firefox | edge. Default: chrome",
+  "headless": false,
+  "_headless_comment": "Headless mode. true=run in background, false=visible window",
+  "keepOpen": false,
+  "_keepOpen_comment": "Keep browser window open after scraping",
+  "cdpPort": 9222,
+  "_cdpPort_comment": "CDP debug port. Used to connect to an existing browser instance",
+  "outputDir": "output",
+  "_outputDir_comment": "Final MD output directory",
+  "tempDir": "temp",
+  "_tempDir_comment": "Temporary files directory",
+  "sites": {
+    "_comment": "Per-domain site authentication config. Supports ${ENV_VAR} environment variable references",
+    "example.internal.com": {
+      "auth": {
+        "type": "basic",
+        "username": "admin",
+        "password": "${INTERNAL_PASS}"
+      }
+    },
+    "dashboard.example.com": {
+      "auth": {
+        "type": "form",
+        "loginUrl": "https://dashboard.example.com/login",
+        "selectors": {
+          "username": "#email",
+          "password": "#password",
+          "submit": "button[type=submit]"
+        },
+        "username": "user@example.com",
+        "password": "${DASHBOARD_PASS}",
+        "waitAfterLogin": 3000
+      }
+    }
+  }
+}

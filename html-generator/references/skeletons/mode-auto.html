@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{文档标题}</title>
+<style>
+/* ========== Reset & Base ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { min-height: 100%; }
+body {
+  position: relative;
+  font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", "Noto Sans SC", sans-serif;
+  color: {text};
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  background: linear-gradient(160deg, {bg_gradient_a} 0%, {card} 45%, {bg_gradient_b} 100%);
+  min-height: 100vh;
+}
+/* 全局光斑：两个白色 radial 光晕，营造页面呼吸感（纯装饰，转换时忽略） */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 45% 35% at 12% 8%, rgba(255,255,255,0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 88% 90%, rgba(255,255,255,0.45) 0%, transparent 55%);
+}
+body > * { position: relative; z-index: 1; }
+
+/* ========== 封面 Hero（深色渐变 + 光斑 + 白字） ========== */
+.title {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 40px;
+  text-align: center;
+  background: linear-gradient(135deg, {gradient_start} 0%, {gradient_mid} 50%, {gradient_end} 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+.title::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 18% 82%, rgba(255,255,255,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 40% at 82% 18%, rgba(255,255,255,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+.title > * { position: relative; z-index: 1; }
+.title h1 { font-size: 28px; font-weight: 800; margin: 0 0 14px 0; letter-spacing: 1px; color: #ffffff; }
+.title .accent-line {
+  width: 48px; height: 3px; background: rgba(255,255,255,0.85);
+  margin: 0 auto 18px; border-radius: 2px;
+}
+.title p { font-size: 15px; color: rgba(255,255,255,0.85); margin: 0; line-height: 1.7; }
+
+/* ========== 章节标题 ========== */
+h1.heading {
+  font-size: 28px;
+  color: {primary};
+  margin: 36px 0 16px 0;
+  font-weight: 700;
+  border-left: 4px solid {accent};
+  padding-left: 16px;
+}
+h2.heading {
+  font-size: 22px;
+  color: {primary};
+  margin: 28px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid {primary_light};
+  font-weight: 600;
+}
+
+/* ========== 正文区卡片化容器（核心内容容器，内部组件 LLM 自由设计） ========== */
+.doc-section {
+  background: {card};
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 0 0 16px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+.doc-section.alt { background: {bg_deep}; box-shadow: none; }
+
+/* ========== callout ========== */
+.callout {
+  margin: 0 0 16px 0;
+  padding: 16px 24px;
+  background: {accent_light};
+  border-left: 4px solid {accent};
+  border-radius: 8px;
+}
+.callout[data-variant="warning"] { background: #FFF3E0; border-left-color: {warning}; }
+.callout[data-variant="quote"]   { background: #f0fdfa; border-left-color: #14b8a6; }
+.callout p { font-size: 15px; color: {text}; margin: 0; line-height: 1.8; }
+
+/* ========== 尾页 ========== */
+.end_page {
+  margin-top: 24px;
+  padding: 56px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, {primary_light} 0%, {accent_light} 100%);
+  border-radius: 16px;
+}
+.end_page h1 { font-size: 28px; color: {primary}; margin: 0 0 16px 0; font-weight: 800; }
+.end_page p  { font-size: 15px; color: {text_secondary}; margin: 0; line-height: 1.8; }
+
+/* ========== 响应式 ========== */
+@media screen and (max-width: 600px) {
+  body { padding: 16px !important; }
+  h1 { font-size: 22px !important; }
+  h2 { font-size: 18px !important; }
+  h3 { font-size: 16px !important; }
+}
+
+/* ========== 打印优化 ========== */
+@media print {
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: {bg};
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body::before { display: none; }
+  .title, .end_page { border-radius: 0; box-shadow: none; }
+  .doc-section { box-shadow: none; border: 1px solid {border}; }
+  section { break-inside: auto !important; }
+}
+</style>
+</head>
+<body class="mode-auto" data-palette="{调色板ID}">
+
+  <!-- ===== title: 封面（深色渐变 + 光斑 + 白字） ===== -->
+  <section class="title">
+    <h1>{文档标题}</h1>
+    <div class="accent-line"></div>
+    <p>{副标题/一句话描述}</p>
+  </section>
+
+  <!-- ===== 正文区：白底卡片容器（内容自由设计，按需使用 paragraph/list/table/stat/timeline/code/card 等语义 class） ===== -->
+  <div class="doc-section">
+    <p class="paragraph">{正文内容}</p>
+    <ul class="list">
+      <li>{条目1}</li>
+      <li>{条目2}</li>
+    </ul>
+  </div>
+
+  <!-- ===== callout: 提示框 ===== -->
+  <aside class="callout" data-variant="tip">
+    <p>{提示内容}</p>
+  </aside>
+
+  <!-- ===== 尾页：致谢（转换时新起一页） ===== -->
+  <section class="title end_page">
+    <h1>{致谢/结语标题}</h1>
+    <p>{致谢内容/联系方式}</p>
+  </section>
+
+</body>
+</html>

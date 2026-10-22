@@ -1,0 +1,77 @@
+{
+  "_meta": {
+   "renderer": "LibreOffice"
+  },
+ "fonts": {
+  "Microsoft YaHei": {
+   "cjk": 0.997,
+   "lower": 0.975,
+   "upper": 0.984,
+   "digits": 0.982,
+   "_n": 12
+  },
+  "DengXian": {
+   "cjk": 0.993,
+   "lower": 1.131,
+   "upper": 1.112,
+   "digits": 1.184,
+   "_n": 12
+  },
+  "SimSun": {
+   "cjk": 0.991,
+   "lower": 0.971,
+   "upper": 0.985,
+   "digits": 0.98,
+   "_n": 12
+  },
+  "SimHei": {
+   "cjk": 0.993,
+   "lower": 0.966,
+   "upper": 0.987,
+   "digits": 0.984,
+   "_n": 12
+  },
+  "KaiTi": {
+   "cjk": 0.993,
+   "lower": 1.014,
+   "upper": 1.209,
+   "digits": 1.248,
+   "_n": 12
+  },
+  "Arial": {
+   "cjk": 0.993,
+   "lower": 0.977,
+   "upper": 0.987,
+   "digits": 0.983,
+   "_n": 12
+  },
+  "Times New Roman": {
+   "cjk": 0.993,
+   "lower": 0.971,
+   "upper": 0.991,
+   "digits": 0.986,
+   "_n": 12
+  },
+  "Georgia": {
+   "cjk": 0.993,
+   "lower": 0.973,
+   "upper": 0.998,
+   "digits": 0.981,
+   "_n": 12
+  },
+  "Segoe UI": {
+   "cjk": 0.993,
+   "lower": 0.975,
+   "upper": 0.982,
+   "digits": 0.981,
+   "_n": 12
+  },
+  "Verdana": {
+   "cjk": 0.993,
+   "lower": 0.968,
+   "upper": 0.985,
+   "digits": 0.978,
+   "_n": 12
+  }
+ }
+}

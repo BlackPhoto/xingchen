@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{文档标题}</title>
+<style>
+/* ========== Reset & Base ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { min-height: 100%; }
+body {
+  position: relative;
+  font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", "Noto Sans SC", sans-serif;
+  color: {text};
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  background: linear-gradient(160deg, {bg_gradient_a} 0%, {card} 45%, {bg_gradient_b} 100%);
+  min-height: 100vh;
+}
+/* 全局光斑 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 45% 35% at 18% 8%, rgba(255,255,255,0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 88% 90%, rgba(255,255,255,0.45) 0%, transparent 55%);
+}
+body > * { position: relative; z-index: 1; }
+
+/* ========== 封面：状态面板（深色渐变 + 白色胶囊） ========== */
+.title {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 40px;
+  background: linear-gradient(135deg, {gradient_start} 0%, {gradient_mid} 50%, {gradient_end} 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+.title::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 18% 82%, rgba(255,255,255,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 40% at 82% 18%, rgba(255,255,255,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+.title > * { position: relative; z-index: 1; }
+.title h1 { font-size: 28px; font-weight: 800; margin: 0 0 10px 0; letter-spacing: 1px; color: #ffffff; }
+.title .subtitle { font-size: 15px; color: rgba(255,255,255,0.85); margin: 0 0 20px 0; line-height: 1.7; }
+.title .title-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.18); }
+.title .meta-item { display: flex; flex-direction: column; }
+.title .meta-item .value { font-size: 17px; font-weight: 700; color: #ffffff; }
+.title .meta-item .label { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+/* ========== 状态胶囊 ========== */
+.status-pill {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.status-pill.success { background: {success}; color: #ffffff; }
+.status-pill.warning { background: {accent_light}; color: {accent_dark}; }
+.status-pill.danger  { background: #FCE4EC; color: #C62828; }
+
+/* ========== 章节标题 ========== */
+h1.heading {
+  font-size: 28px;
+  color: {primary};
+  margin: 36px 0 16px 0;
+  font-weight: 700;
+  border-left: 4px solid {accent};
+  padding-left: 16px;
+}
+h2.heading {
+  font-size: 22px;
+  color: {primary};
+  margin: 28px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid {primary_light};
+  font-weight: 600;
+}
+
+/* ========== stat 指标卡 ========== */
+.stat-grid { display: flex; gap: 16px; margin: 0 0 16px 0; }
+.stat {
+  flex: 1;
+  text-align: center;
+  padding: 24px;
+  background: {card};
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-top: 3px solid {accent};
+}
+.stat .num { font-size: 28px; color: {accent}; font-weight: 800; line-height: 1.1; }
+.stat .label { font-size: 12px; color: {text_secondary}; margin-top: 6px; }
+
+/* ========== 任务列表（白底行卡片） ========== */
+.task-list { list-style: none; padding: 0; margin: 0 0 16px 0; font-size: 15px; color: {text}; line-height: 1.8; }
+.task-list li {
+  margin-bottom: 10px;
+  padding: 14px 18px;
+  background: {card};
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  border-left: 3px solid {accent_light};
+}
+.task-list li:hover { border-left-color: {accent}; }
+
+/* ========== timeline ========== */
+.timeline { list-style: none; padding: 0; margin: 0 0 16px 0; }
+.timeline li {
+  position: relative;
+  padding-left: 28px;
+  padding-bottom: 18px;
+  border-left: 2px solid {accent_light};
+  margin-left: 6px;
+}
+.timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -7px; top: 5px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: {accent};
+  border: 2px solid {bg};
+  box-shadow: 0 0 0 2px {accent_light};
+}
+.timeline strong { font-size: 14px; color: {accent}; }
+.timeline p { font-size: 15px; color: {text}; margin: 4px 0 0 0; line-height: 1.8; }
+
+/* ========== callout ========== */
+.callout {
+  margin: 0 0 16px 0;
+  padding: 16px 24px;
+  background: {accent_light};
+  border-left: 4px solid {accent};
+  border-radius: 8px;
+}
+.callout[data-variant="warning"] { background: #FFF3E0; border-left-color: {warning}; }
+.callout p { font-size: 15px; color: {text}; margin: 0; line-height: 1.8; }
+
+/* ========== 列表 ========== */
+.list { margin: 0 0 16px 0; padding-left: 24px; font-size: 15px; color: {text}; line-height: 1.8; }
+.list li { margin-bottom: 8px; }
+.list li::marker { color: {accent}; }
+
+/* ========== 响应式 ========== */
+@media screen and (max-width: 600px) {
+  body { padding: 16px !important; }
+  h1 { font-size: 22px !important; }
+  h2 { font-size: 18px !important; }
+  h3 { font-size: 16px !important; }
+  .stat-grid { flex-direction: column; }
+  .title { padding: 40px 24px; }
+}
+
+/* ========== 打印优化 ========== */
+@media print {
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: {bg};
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body::before { display: none; }
+  .title { border-radius: 0; box-shadow: none; }
+  .stat, .task-list li { box-shadow: none; border: 1px solid {border}; }
+  section { break-inside: auto !important; }
+}
+</style>
+</head>
+<body class="mode-status" data-palette="{调色板ID}">
+
+  <!-- ===== title: 封面（状态面板） ===== -->
+  <section class="title">
+    <h1>{项目周报 / 进度标题}</h1>
+    <p class="subtitle">{报告周期/一句话概述}</p>
+    <div class="title-meta">
+      <div class="meta-item">
+        <span class="value">{完成率/关键数值}</span>
+        <span class="label">整体进度</span>
+      </div>
+      <div class="meta-item">
+        <span class="value">{风险数}</span>
+        <span class="label">风险项</span>
+      </div>
+      <div class="meta-item">
+        <span class="value">{下周里程碑数}</span>
+        <span class="label">下周节点</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 概览：指标数字（stat） ===== -->
+  <h1 class="heading">{本周概览}</h1>
+  <div class="stat-grid" data-cols="3">
+    <div class="stat">
+      <div class="num">{数值}</div>
+      <div class="label">{指标名}</div>
+    </div>
+    <div class="stat">
+      <div class="num">{数值}</div>
+      <div class="label">{指标名}</div>
+    </div>
+    <div class="stat">
+      <div class="num">{数值}</div>
+      <div class="label">{指标名}</div>
+    </div>
+  </div>
+
+  <!-- ===== 任务进展（list + 状态胶囊） ===== -->
+  <h2 class="heading">{任务进展}</h2>
+  <ul class="task-list">
+    <li><span class="status-pill success">已完成</span> {任务描述}</li>
+    <li><span class="status-pill warning">进行中</span> {任务描述}</li>
+    <li><span class="status-pill danger">有风险</span> {任务描述}</li>
+  </ul>
+
+  <!-- ===== 时间线：里程碑 / 关键节点 ===== -->
+  <h2 class="heading">{关键里程碑}</h2>
+  <ol class="timeline">
+    <li>
+      <strong>{日期}</strong>
+      <p>{里程碑事件描述}</p>
+    </li>
+    <li>
+      <strong>{日期}</strong>
+      <p>{里程碑事件描述}</p>
+    </li>
+    <li>
+      <strong>{日期}</strong>
+      <p>{里程碑事件描述}</p>
+    </li>
+  </ol>
+
+  <!-- ===== 风险与问题（callout） ===== -->
+  <aside class="callout" data-variant="warning">
+    <p>{风险/问题描述}</p>
+  </aside>
+
+  <!-- ===== 下周计划（paragraph + list） ===== -->
+  <h2 class="heading">{下周计划}</h2>
+  <ul class="list">
+    <li>{计划1}</li>
+    <li>{计划2}</li>
+  </ul>
+
+</body>
+</html>

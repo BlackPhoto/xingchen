@@ -1,0 +1,9 @@
+# html-generator 转换脚本依赖
+# 安装: pip install -r requirements.txt
+# (Playwright Chromium 内核由 convert.ps1 / convert.sh 首次运行时自动下载，约 100MB)
+# cssutils 为可选增强（预解析 <style> 块），未安装时自动跳过，不强制
+
+python-docx==1.1.2
+beautifulsoup4==4.12.3
+lxml==5.2.2
+playwright==1.45.0

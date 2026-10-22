@@ -1,0 +1,378 @@
+{
+  "default_theme": "tech-blue",
+  "selection_guide": [
+    {
+      "match_keywords": ["科技", "IT", "软件", "互联网", "通信", "云计算", "AI", "数字化", "汇报", "路演", "产品", "技术", "系统", "平台", "架构", "数据", "智能", "解决方案"],
+      "theme": "tech-blue",
+      "reason": "经典蓝白商务科技风，通用性最强"
+    },
+    {
+      "match_keywords": ["党建", "党", "政务", "国企", "年度", "表彰", "两会", "红色", "政府", "纪检", "组织", "宣传", "检察", "纪委监委", "公务员", "机关", "党委", "支部", "精神", "学习"],
+      "theme": "party-red-gold",
+      "reason": "红金党政风，庄重正式"
+    },
+    {
+      "match_keywords": ["文化", "非遗", "教育", "国学", "传统", "陶瓷", "茶", "书画", "中式", "江南", "博物馆", "历史", "文博", "文物", "考古", "人文", "诗词", "古建", "戏曲", "工艺"],
+      "theme": "celadon-newchinese",
+      "reason": "青瓷雅韵新中式，文化质感"
+    },
+    {
+      "match_keywords": ["高端", "品牌", "发布会", "奢侈品", "腕表", "汽车", "旗舰", "极简", "premium", "黑金", "质感", "格调", "精选", "尊享"],
+      "theme": "ink-dark-gray",
+      "reason": "墨韵深灰，极简高端"
+    },
+    {
+      "match_keywords": ["数据可视化", "仪表盘", "监控", "大屏", "炫彩", "科技发布会", "数字孪生", "元宇宙", "暗色", "安防", "夜间", "指挥中心", "态势感知", "赛博", "智慧城市", "物联网"],
+      "theme": "tech-neon-dark",
+      "reason": "科技霓虹深底，数据看板/炫彩发布会"
+    },
+    {
+      "match_keywords": ["环保", "农业", "可持续", "生态", "绿色", "新能源", "林业", "有机", "低碳", "碳中和", "ESG", "土壤", "水利", "气象", "环境", "自然", "种植", "园林"],
+      "theme": "green-natural",
+      "reason": "翠绿自然，生态环保"
+    }
+  ],
+  "themes": {
+    "tech-blue": {
+      "meta": {
+        "name": "商务科技蓝",
+        "description": "经典蓝白商务科技风，冷色调，适用面最广",
+        "tone": "cool",
+        "suitable_for": ["科技", "IT", "软件", "互联网", "通信", "云计算", "AI", "汇报", "路演", "产品"]
+      },
+      "primary": {
+        "main": "#1e5bb5",
+        "dark": "#0d3a7a",
+        "light": "#4a90e2",
+        "accent": "#2b7de9"
+      },
+      "secondary_palette": {
+        "aux1": "#6db3f2",
+        "aux2": "#0891b2",
+        "aux3": "#06b6d4",
+        "neutral_dark": "#334155",
+        "neutral_mid": "#64748b",
+        "neutral_light": "#cbd5e1"
+      },
+      "background": {
+        "main": "#ffffff",
+        "secondary": "#f5f7fa",
+        "tertiary": "#f0f4f8"
+      },
+      "text": {
+        "primary": "#1a1a2e",
+        "secondary": "#4a5568",
+        "muted": "#718096"
+      },
+      "border": {
+        "light": "#e2e8f0",
+        "card_tint": "rgba(30, 91, 181, 0.1)"
+      },
+      "gradients": {
+        "main": "linear-gradient(135deg, #1e5bb5 0%, #2b7de9 100%)",
+        "light": "linear-gradient(135deg, #e8f0fe 0%, #d4e4fc 100%)",
+        "card": "linear-gradient(135deg, #f0f5ff 0%, #e6efff 100%)",
+        "radial": "radial-gradient(circle at 50% 50%, #ffffff 0%, #f5f7fa 100%)"
+      },
+      "shadows": {
+        "sm": "0 2px 4px rgba(30, 91, 181, 0.08)",
+        "md": "0 4px 12px rgba(30, 91, 181, 0.12)",
+        "lg": "0 8px 24px rgba(30, 91, 181, 0.15)",
+        "xl": "0 12px 32px rgba(30, 91, 181, 0.2)"
+      },
+      "text_on_primary": "#ffffff",
+      "tag_bg_on_primary": "rgba(255, 255, 255, 0.95)",
+      "qa_rules": {
+        "strictness": "strict",
+        "primary_tone": "蓝/青/灰蓝/灰色系",
+        "rule": "以蓝色系为主调，禁止红/橙/黄/绿/紫/粉等暖色",
+        "exceptions": "素材明确要求表示警告/风险/负面时可使用对应语义色"
+      }
+    },
+
+    "party-red-gold": {
+      "meta": {
+        "name": "党政红金",
+        "description": "红金党政风，庄重正式，适用于党建政务场景",
+        "tone": "warm",
+        "suitable_for": ["党建", "政务", "国企", "年度汇报", "表彰", "两会"]
+      },
+      "primary": {
+        "main": "#DE2910",
+        "dark": "#8B0000",
+        "light": "#FFD700",
+        "accent": "#FFF8DC"
+      },
+      "secondary_palette": {
+        "aux1": "#FF6B5B",
+        "aux2": "#D4AC0D",
+        "aux3": "#F5E6CA",
+        "neutral_dark": "#3D2010",
+        "neutral_mid": "#8B5E3C",
+        "neutral_light": "#E8D5B7"
+      },
+      "background": {
+        "main": "#FFFAF5",
+        "secondary": "#FFF5EC",
+        "tertiary": "#FDEDE0"
+      },
+      "text": {
+        "primary": "#3D1A1A",
+        "secondary": "#6B3A3A",
+        "muted": "#6B5040"
+      },
+      "border": {
+        "light": "#F0DACP",
+        "card_tint": "rgba(222, 41, 16, 0.1)"
+      },
+      "gradients": {
+        "main": "linear-gradient(135deg, #DE2910 0%, #8B0000 100%)",
+        "light": "linear-gradient(135deg, #FFF8DC 0%, #FFD700 100%)",
+        "card": "linear-gradient(135deg, #FFF5EC 0%, #FDEDE0 100%)",
+        "radial": "radial-gradient(circle at 50% 50%, #FFFAF5 0%, #FFF5EC 100%)"
+      },
+      "shadows": {
+        "sm": "0 2px 4px rgba(222, 41, 16, 0.08)",
+        "md": "0 4px 12px rgba(222, 41, 16, 0.12)",
+        "lg": "0 8px 24px rgba(222, 41, 16, 0.15)",
+        "xl": "0 12px 32px rgba(222, 41, 16, 0.2)"
+      },
+      "text_on_primary": "#ffffff",
+      "tag_bg_on_primary": "rgba(255, 255, 255, 0.95)",
+      "qa_rules": {
+        "strictness": "standard",
+        "primary_tone": "红/金/米/棕暖色调",
+        "rule": "以主题色系为主调，允许中性灰搭配，页面整体色调应与主题保持一致",
+        "exceptions": "数据趋势指示器可使用绿色(上涨)和红色(下跌)"
+      }
+    },
+
+    "celadon-newchinese": {
+      "meta": {
+        "name": "青瓷雅韵",
+        "description": "新中式雅致风，胭脂红+竹绿+陶土米，文化质感",
+        "tone": "warm",
+        "suitable_for": ["文化", "非遗", "教育", "国学", "传统", "陶瓷", "茶", "书画", "中式", "江南"]
+      },
+      "primary": {
+        "main": "#E86161",
+        "dark": "#4A4A4A",
+        "light": "#7FB068",
+        "accent": "#F2E6CE"
+      },
+      "secondary_palette": {
+        "aux1": "#D4886A",
+        "aux2": "#A8C97F",
+        "aux3": "#C9B8A8",
+        "neutral_dark": "#3C3028",
+        "neutral_mid": "#7B6F5E",
+        "neutral_light": "#DDD3C5"
+      },
+      "background": {
+        "main": "#FBF7F0",
+        "secondary": "#F5EEE0",
+        "tertiary": "#EDE4D0"
+      },
+      "text": {
+        "primary": "#3C3028",
+        "secondary": "#5C5045",
+        "muted": "#5C5045"
+      },
+      "border": {
+        "light": "#D8CDB8",
+        "card_tint": "rgba(232, 97, 97, 0.1)"
+      },
+      "gradients": {
+        "main": "linear-gradient(135deg, #E86161 0%, #4A4A4A 100%)",
+        "light": "linear-gradient(135deg, #F2E6CE 0%, #7FB068 100%)",
+        "card": "linear-gradient(135deg, #FBF7F0 0%, #F5EEE0 100%)",
+        "radial": "radial-gradient(circle at 50% 50%, #FBF7F0 0%, #F5EEE0 100%)"
+      },
+      "shadows": {
+        "sm": "0 2px 4px rgba(232, 97, 97, 0.06)",
+        "md": "0 4px 12px rgba(232, 97, 97, 0.10)",
+        "lg": "0 8px 24px rgba(232, 97, 97, 0.12)",
+        "xl": "0 12px 32px rgba(232, 97, 97, 0.16)"
+      },
+      "text_on_primary": "#ffffff",
+      "tag_bg_on_primary": "rgba(255, 255, 255, 0.92)",
+      "qa_rules": {
+        "strictness": "standard",
+        "primary_tone": "胭脂红/竹绿/陶土米/墨棕",
+        "rule": "以主题色系为主调，禁止高饱和荧光色，允许柔和中性色搭配",
+        "exceptions": "数据趋势指示器可使用绿色和红色"
+      }
+    },
+
+    "ink-dark-gray": {
+      "meta": {
+        "name": "墨韵深灰",
+        "description": "极简高端灰系，黑/白/灰极致克制，发布会首选",
+        "tone": "neutral",
+        "suitable_for": ["高端品牌", "发布会", "奢侈品", "腕表", "汽车", "旗舰产品", "极简"]
+      },
+      "primary": {
+        "main": "#333333",
+        "dark": "#1A1A1A",
+        "light": "#666666",
+        "accent": "#CCCCCC"
+      },
+      "secondary_palette": {
+        "aux1": "#4A4A4A",
+        "aux2": "#808080",
+        "aux3": "#B3B3B3",
+        "neutral_dark": "#0F0F0F",
+        "neutral_mid": "#595959",
+        "neutral_light": "#D9D9D9"
+      },
+      "background": {
+        "main": "#FFFFFF",
+        "secondary": "#F7F7F7",
+        "tertiary": "#EFEFEF"
+      },
+      "text": {
+        "primary": "#1A1A1A",
+        "secondary": "#4A4A4A",
+        "muted": "#666666"
+      },
+      "border": {
+        "light": "#E0E0E0",
+        "card_tint": "rgba(51, 51, 51, 0.08)"
+      },
+      "gradients": {
+        "main": "linear-gradient(135deg, #333333 0%, #1A1A1A 100%)",
+        "light": "linear-gradient(135deg, #CCCCCC 0%, #999999 100%)",
+        "card": "linear-gradient(135deg, #F7F7F7 0%, #EFEFEF 100%)",
+        "radial": "radial-gradient(circle at 50% 50%, #FFFFFF 0%, #F7F7F7 100%)"
+      },
+      "shadows": {
+        "sm": "0 2px 4px rgba(0, 0, 0, 0.06)",
+        "md": "0 4px 12px rgba(0, 0, 0, 0.08)",
+        "lg": "0 8px 24px rgba(0, 0, 0, 0.12)",
+        "xl": "0 12px 32px rgba(0, 0, 0, 0.16)"
+      },
+      "text_on_primary": "#ffffff",
+      "tag_bg_on_primary": "rgba(255, 255, 255, 0.92)",
+      "qa_rules": {
+        "strictness": "standard",
+        "primary_tone": "黑/白/灰",
+        "rule": "以灰度为主调，允许极少量主题强调色作为点缀装饰",
+        "exceptions": "数据趋势指示器可使用绿色和红色"
+      }
+    },
+
+    "tech-neon-dark": {
+      "meta": {
+        "name": "科技霓虹",
+        "description": "深底科技风，蓝灰+青绿霓虹高亮，数据看板/炫彩发布会",
+        "tone": "cool-dark",
+        "suitable_for": ["数据可视化", "仪表盘", "监控", "大屏", "炫彩科技", "发布会", "数字孪生", "元宇宙", "安防", "指挥中心"]
+      },
+      "primary": {
+        "main": "#2C3E50",
+        "dark": "#181B24",
+        "light": "#6B7A8F",
+        "accent": "#40695C"
+      },
+      "secondary_palette": {
+        "aux1": "#5B8C81",
+        "aux2": "#7A8B99",
+        "aux3": "#A4B5C4",
+        "neutral_dark": "#0F1116",
+        "neutral_mid": "#3A4049",
+        "neutral_light": "#5C6573"
+      },
+      "background": {
+        "main": "#181B24",
+        "secondary": "#20242E",
+        "tertiary": "#283040"
+      },
+      "text": {
+        "primary": "#E8ECF1",
+        "secondary": "#A4B0BE",
+        "muted": "#94A3B8"
+      },
+      "border": {
+        "light": "#2C3540",
+        "card_tint": "rgba(107, 122, 143, 0.15)"
+      },
+      "gradients": {
+        "main": "linear-gradient(135deg, #2C3E50 0%, #40695C 100%)",
+        "light": "linear-gradient(135deg, #20242E 0%, #2C3540 100%)",
+        "card": "linear-gradient(135deg, #20242E 0%, #283040 100%)",
+        "radial": "radial-gradient(circle at 50% 50%, #20242E 0%, #181B24 100%)"
+      },
+      "shadows": {
+        "sm": "0 2px 4px rgba(0, 0, 0, 0.4)",
+        "md": "0 4px 12px rgba(0, 0, 0, 0.5)",
+        "lg": "0 8px 24px rgba(0, 0, 0, 0.6)",
+        "xl": "0 12px 32px rgba(0, 0, 0, 0.7)"
+      },
+      "text_on_primary": "#E8ECF1",
+      "tag_bg_on_primary": "rgba(232, 236, 241, 0.15)",
+      "qa_rules": {
+        "strictness": "standard",
+        "primary_tone": "深蓝灰/青绿/深灰",
+        "rule": "深色背景主题，以冷色为主调，允许少量亮色强调，禁止大面积高饱和暖色；文字必须为浅色保证可读性",
+        "exceptions": "数据趋势指示器可使用绿色和红色"
+      }
+    },
+
+    "green-natural": {
+      "meta": {
+        "name": "翠绿自然",
+        "description": "自然柔和绿色系，灰绿+草绿+米白，环保生态首选",
+        "tone": "neutral-green",
+        "suitable_for": ["环保", "农业", "可持续", "生态", "新能源", "林业", "有机", "低碳", "碳中和", "ESG"]
+      },
+      "primary": {
+        "main": "#789262",
+        "dark": "#2F4F4F",
+        "light": "#B5C99A",
+        "accent": "#F7F7F0"
+      },
+      "secondary_palette": {
+        "aux1": "#A3C18C",
+        "aux2": "#6B8E4E",
+        "aux3": "#D4E4C0",
+        "neutral_dark": "#3A4A35",
+        "neutral_mid": "#6B7A5E",
+        "neutral_light": "#C5D0B5"
+      },
+      "background": {
+        "main": "#F7F7F0",
+        "secondary": "#EFF3E8",
+        "tertiary": "#E4ECD8"
+      },
+      "text": {
+        "primary": "#2F4F4F",
+        "secondary": "#4A5D45",
+        "muted": "#5A6B4E"
+      },
+      "border": {
+        "light": "#D4E4C0",
+        "card_tint": "rgba(120, 146, 98, 0.1)"
+      },
+      "gradients": {
+        "main": "linear-gradient(135deg, #789262 0%, #2F4F4F 100%)",
+        "light": "linear-gradient(135deg, #F7F7F0 0%, #B5C99A 100%)",
+        "card": "linear-gradient(135deg, #EFF3E8 0%, #E4ECD8 100%)",
+        "radial": "radial-gradient(circle at 50% 50%, #F7F7F0 0%, #EFF3E8 100%)"
+      },
+      "shadows": {
+        "sm": "0 2px 4px rgba(120, 146, 98, 0.08)",
+        "md": "0 4px 12px rgba(120, 146, 98, 0.12)",
+        "lg": "0 8px 24px rgba(120, 146, 98, 0.15)",
+        "xl": "0 12px 32px rgba(120, 146, 98, 0.2)"
+      },
+      "text_on_primary": "#ffffff",
+      "tag_bg_on_primary": "rgba(255, 255, 255, 0.92)",
+      "qa_rules": {
+        "strictness": "standard",
+        "primary_tone": "灰绿/草绿/米白/岩绿",
+        "rule": "以绿色系为主调，允许中性灰和米白搭配，禁止高饱和暖色",
+        "exceptions": "数据趋势指示器可使用绿色和红色"
+      }
+    }
+  }
+}

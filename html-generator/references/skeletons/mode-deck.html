@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{文档标题}</title>
+<style>
+/* ========== Reset & Base ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-snap-type: y proximity; min-height: 100%; }
+body {
+  position: relative;
+  font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", "Noto Sans SC", sans-serif;
+  color: {text};
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 24px;
+  background: linear-gradient(160deg, {bg_gradient_a} 0%, {card} 45%, {bg_gradient_b} 100%);
+  min-height: 100vh;
+}
+/* 全局光斑 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 45% 35% at 18% 8%, rgba(255,255,255,0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 88% 90%, rgba(255,255,255,0.45) 0%, transparent 55%);
+}
+body > * { position: relative; z-index: 1; }
+
+/* ========== 模式特征：整屏滚动吸附 + 视觉叙事 ========== */
+.slide {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 64px;
+  margin: 16px 0;
+  background: {card};
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.slide h1 { font-size: 42px; color: {primary}; font-weight: 800; margin: 0 0 24px 0; line-height: 1.3; }
+.slide h2 { font-size: 32px; color: {primary}; font-weight: 700; margin: 0 0 20px 0; }
+.slide p  { font-size: 22px; color: {text}; line-height: 1.7; margin: 0 0 16px 0; }
+.slide li { font-size: 20px; color: {text}; line-height: 1.8; margin-bottom: 12px; }
+.slide .accent-line {
+  width: 64px; height: 4px; background: {accent}; border-radius: 2px; margin: 0 0 24px 0;
+}
+
+/* ========== Hero/CTA：整屏深色渐变 + 白字 ========== */
+.slide.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, {gradient_start} 0%, {gradient_mid} 50%, {gradient_end} 100%);
+  color: #ffffff;
+  text-align: center;
+  align-items: center;
+}
+.slide.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 18% 82%, rgba(255,255,255,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 40% at 82% 18%, rgba(255,255,255,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+.slide.hero > * { position: relative; z-index: 1; }
+.slide.hero h1 { color: #ffffff; }
+.slide.hero h2 { color: #ffffff; }
+.slide.hero p  { color: rgba(255,255,255,0.88); }
+.slide.hero .accent-line { background: rgba(255,255,255,0.85); }
+
+/* ========== stat（浅底块） ========== */
+.stat {
+  flex: 1;
+  text-align: center;
+  padding: 32px;
+  background: {bg};
+  border-radius: 12px;
+}
+.stat .num { font-size: 48px; color: {accent}; font-weight: 800; line-height: 1.1; }
+.stat .label { font-size: 16px; color: {text_secondary}; margin-top: 8px; }
+
+/* ========== timeline ========== */
+.timeline { list-style: none; padding: 0; width: 100%; }
+.timeline li {
+  position: relative;
+  padding-left: 28px;
+  padding-bottom: 20px;
+  border-left: 3px solid {accent_light};
+  margin-left: 6px;
+}
+.timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -9px; top: 5px;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: {accent};
+  border: 2px solid {bg};
+  box-shadow: 0 0 0 2px {accent_light};
+}
+.timeline strong { font-size: 20px; color: {accent}; }
+.timeline p { font-size: 18px; color: {text}; margin: 4px 0 0 0; line-height: 1.6; }
+
+/* ========== 响应式 ========== */
+@media screen and (max-width: 600px) {
+  body { padding: 16px !important; }
+  .slide { min-height: auto; padding: 32px 24px; }
+  .slide h1 { font-size: 30px; }
+  .slide h2 { font-size: 24px; }
+  .slide p, .slide li { font-size: 17px; }
+}
+
+/* ========== 打印优化 ========== */
+@media print {
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: {bg};
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body::before { display: none; }
+  .slide {
+    min-height: auto;
+    page-break-after: always;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 32px 24px;
+  }
+  .slide:last-child { page-break-after: auto; }
+  section { break-inside: auto !important; }
+}
+</style>
+</head>
+<body class="mode-deck" data-palette="{调色板ID}">
+
+  <!-- ===== Hero Banner（全屏深色渐变） ===== -->
+  <section class="title slide hero">
+    <h1>{产品名称/品牌标题}</h1>
+    <div class="accent-line" style="margin:0 auto 24px;"></div>
+    <p style="font-size:20px;">{副标题/发布日期}</p>
+  </section>
+
+  <!-- ===== 内容区块：标题 + 要点 ===== -->
+  <section class="slide">
+    <h1>{区块标题（大字）}</h1>
+    <div class="accent-line"></div>
+    <p class="paragraph">{核心观点一句话}</p>
+    <ul class="list" style="list-style:none;padding:0;">
+      <li style="padding-left:24px;position:relative;">▸ {要点1}</li>
+      <li style="padding-left:24px;position:relative;">▸ {要点2}</li>
+    </ul>
+  </section>
+
+  <!-- ===== 数据展示区：核心指标 ===== -->
+  <section class="slide">
+    <h2>{数据展示标题}</h2>
+    <div class="accent-line"></div>
+    <div data-cols="3" style="display:flex;gap:32px;width:100%;">
+      <div class="stat">
+        <div class="num">{数值}</div>
+        <div class="label">{指标名}</div>
+      </div>
+      <div class="stat">
+        <div class="num">{数值}</div>
+        <div class="label">{指标名}</div>
+      </div>
+      <div class="stat">
+        <div class="num">{数值}</div>
+        <div class="label">{指标名}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 流程/里程碑区 ===== -->
+  <section class="slide">
+    <h2>{里程碑标题}</h2>
+    <div class="accent-line"></div>
+    <ol class="timeline">
+      <li>
+        <strong>{里程碑时间点}</strong>
+        <p>{事件描述}</p>
+      </li>
+      <li>
+        <strong>{里程碑时间点}</strong>
+        <p>{事件描述}</p>
+      </li>
+      <li>
+        <strong>{里程碑时间点}</strong>
+        <p>{事件描述}</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== 尾页/CTA（深色渐变呼应 Hero） ===== -->
+  <section class="title end_page slide hero">
+    <h1>{结语/行动号召}</h1>
+    <div class="accent-line" style="margin:0 auto 24px;"></div>
+    <p style="font-size:20px;">{联系方式/进一步了解}</p>
+  </section>
+
+</body>
+</html>
